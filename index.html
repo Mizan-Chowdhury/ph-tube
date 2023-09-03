@@ -13,26 +13,56 @@
     <title>PH Tube</title>
   </head>
   <body>
-    <header class="flex justify-between items-center py-5 mx-10 border-b-2">
+    <header class="flex justify-between items-center py-5 mx-16 border-b-2">
       <div>
-        <img src="image/Logo.png" alt="" />
+        <a href=""><img class="w-36" src="image/Logo.png" alt="" /></a>
       </div>
-      <div class="bg-[#25252533] py-1 px-3 rounded-md font-semibold">
+      <div class="bg-[#25252533] py-1 px-3 rounded font-semibold">
         <button>Sort by view</button>
       </div>
-      <div class="bg-[#FF1F3D] py-1 px-3 rounded-md text-white">
+      <div class="bg-[#FF1F3D] py-1 px-3 rounded text-white">
         <a href="">Blog</a>
       </div>
     </header>
 
-
-    
     <main>
-      <div class="tabs">
-        <a class="tab">Tab 1</a>
-        <a class="tab tab-active">Tab 2</a>
-        <a class="tab">Tab 3</a>
+      <div class="w-full">
+        <div
+          class="tabs w-96 m-auto flex items-center gap-5 mt-8"
+          id="tab-container"
+        ></div>
       </div>
+
+      <!-- card section -->
+      <div id="card-container" class="grid grid-cols-4 gap-5 my-10 px-5 ">
+        <!-- <div class="bg-base-100">
+            <div class="h-2/3">
+                <img class="rounded-xl h-full w-full" src="image/c1.jpg" alt="" />
+            </div>
+            <div class="flex gap-5 mt-5">
+                <div class="">
+                    <img class="rounded-full w-20 " src="image/man-4.jpg" alt="">
+                </div>
+             <div class="space-y-2">
+                <h1 class="font-bold">Building a Winning UX Strategy Using the Kano Model</h1>
+                <h2 class="">Awlad Hossain <span>
+                    <img src="image/fi_10629607.jpg" class="inline" alt="">
+                </span>
+                  </h2>
+                  <p>91K views</p>
+             </div>
+            </div>
+          </div> -->
+          </div>
+          <div id="error-container" class="flex justify-center items-center h-screen">
+            <!-- <div class="">
+              <div class="flex justify-center mb-5">
+                <img class="" src="image/Icon.png" alt="">
+              </div>
+              <h1 class="text-2xl font-bold">Oops!! Sorry, There is no content here
+              </h1>
+            </div> -->
+          </div>
     </main>
 
     <script src="index.js"></script>
