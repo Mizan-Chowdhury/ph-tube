@@ -41,7 +41,7 @@ const displayAllCategory = (data) => {
         const perMin = min % 60;
         const hrs = Math.floor(min / 60);
         console.log(hrs, perMin);
-        return `${hrs}hrs ${perMin} min ago`;
+        return `${hrs}hrs ${perMin}min ago`;
       };
       const min = convartMin(second);
       const newDiv = document.createElement("div");
@@ -49,13 +49,13 @@ const displayAllCategory = (data) => {
                 <img class="inline" src="image/fi_10629607.jpg">`;
       newDiv.innerHTML = `
                     <div class="bg-base-100 h-[330px] md:flex lg:flex-col">
-                    <div class="lg:h-2/3 md:h-[280px] h-2/3 lg:w-auto md:w-4/6">
+                    <div class="lg:h-2/3 md:h-[280px] h-2/3 lg:w-auto md:w-4/6 relative">
                             <img class="rounded-xl h-full w-full md:w-full" src=${
                               dataId.thumbnail
                             } alt="" />
-                    <div id="min-container" class="absolute bg-[#171717] px-2 rounded lg:ml-40 md:ml-[320px] ml-64 -mt-8 text-white">
-                    <p>${second ? min : ""}</p> </div>
-                            
+                    <p id="time" class="px-2 py-1
+                    rounded  text-xs text-white absolute right-2 -mt-8 font-medium bg-[#171717]">
+                    ${second ? min : ''}</p>                            
                     </div>
                     <div class="flex lg:flex-row md:flex-col gap-5 mt-5 md:ml-5">
                         <div>

@@ -1,1 +1,78 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>PH Tube</title>
+  </head>
+  <body>
+    <header
+      class="flex justify-between items-center py-5 lg:mx-16 mx-5 border-b-2"
+    >
+      <div>
+        <a href=""><img class="lg:w-36 w-28" src="image/Logo.png" alt="" /></a>
+      </div>
+      <div class="bg-[#FF1F3D] py-1 px-3 rounded text-white text-sm">
+        <a class="font-bold text-lg" href="index.html">Home</a>
+      </div>
+    </header>
+    <main class="px-20 mt-10 space-y-2">
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+          Discuss the scope of var, let, and const
+        </div>
+        <div class="collapse-content">
+          <p class="text-lg">
+            <span class="font-bold">Var:</span> var is a global variable. You
+            can access this variable any where, You can reassign this variable
+            multiple time. <br />
+            <span class="font-bold">Let:</span> let is a local variable this is
+            not a global variable. So a variable declared in a block with let is
+            only available for use within that block. <br />
+            <span class="font-bold">Const:</span> const is a local variable this
+            is not a global variable. You can't do reassing and can't change the
+            value. This means that the value of a variable declared with const
+            remains the same within its scope. It cannot be updated or
+            re-declared.
+          </p>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+          Tell us the use cases of null and undefined
+        </div>
+        <div class="collapse-content">
+          <p class="text-lg">
+            Null: Null is basically an assignment value given to a variable. The
+            variable which has been assigned as null contains no value. <br />
+            Undefined: Undefined means "not defined". So we declare a variable
+            but do not assign a value to it, the variable becomes undefined.
+          </p>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+          What do you mean by REST API?
+        </div>
+        <div class="collapse-content">
+          <p class="text-lg">
+            A RESTful API (Representational State Transfer) is a type of web
+            service that uses HTTP requests to communicate with web services and
+            exchange data. It is based on a set of architectural principles that
+            define how web standards, such as HTTP and URIs, should be used to
+            create web services.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
