@@ -12,42 +12,58 @@ const displayData = (data) => {
   data.forEach((category) => {
     const newDiv = document.createElement("div");
     newDiv.innerHTML = `
-        <a onclick="displayAllCategory('${category.category_id}')" class="tab bg-[#25252526] rounded">${category.category}</a>
+        <a onclick="getAllCategoryId('${category.category_id}')" class="tab bg-[#25252526] rounded font-semibold">${category.category}</a>
         `;
     tabContainer.appendChild(newDiv);
   });
 };
 
-const displayAllCategory = async (categoryId) => {
-  const cardContainer = document.getElementById("card-container");
-  const errorContainer = document.getElementById("error-container");
-  cardContainer.innerHTML = "";
+const getAllCategoryId = async (categoryId) => {
   const response = await fetch(`
     https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
   const resolve = await response.json();
   const data = resolve.data;
-  console.log(data.status);
+  displayAllCategory(data);
+  sortDataByViews(data);
+};
+
+const displayAllCategory = (data) => {
+  const cardContainer = document.getElementById("card-container");
+  const errorContainer = document.getElementById("error-container");
+  cardContainer.innerHTML = "";
+  errorContainer.innerHTML = "";
   if (data.length > 0) {
     data.forEach((dataId) => {
-      console.log(categoryId.length);
-      console.log(dataId.status);
+      const second = parseFloat(dataId.others.posted_date);
+      console.log(second);
+      const convartMin = (second) => {
+        const min = Math.floor(second / 60);
+        const perMin = min % 60;
+        const hrs = Math.floor(min / 60);
+        console.log(hrs, perMin);
+        return `${hrs}hrs ${perMin} min ago`;
+      };
+      const min = convartMin(second);
       const newDiv = document.createElement("div");
       const verifiedIcon = `
                 <img class="inline" src="image/fi_10629607.jpg">`;
       newDiv.innerHTML = `
-                    <div class="bg-base-100 h-96">
-                    <div class="h-1/2">
-                            <img class="rounded-xl h-full w-full" src=${
+                    <div class="bg-base-100 h-[330px] md:flex lg:flex-col">
+                    <div class="lg:h-2/3 md:h-[280px] h-2/3 lg:w-auto md:w-4/6">
+                            <img class="rounded-xl h-full w-full md:w-full" src=${
                               dataId.thumbnail
                             } alt="" />
+                    <div id="min-container" class="absolute bg-[#171717] px-2 rounded lg:ml-40 md:ml-[320px] ml-64 -mt-8 text-white">
+                    <p>${second ? min : ""}</p> </div>
+                            
                     </div>
-                    <div class="flex gap-5 mt-5">
-                        <div class="">
+                    <div class="flex lg:flex-row md:flex-col gap-5 mt-5 md:ml-5">
+                        <div>
                             <img class="rounded-full w-12 h-12 " src=${
                               dataId.authors[0].profile_picture
                             } alt="">
                         </div>
-                     <div class="space-y-2">
+                     <div class="lg:space-y-2">
                         <h1 class="font-bold text-lg">${dataId.title}</h1>
                         <h2 class="">${dataId.authors[0].profile_name} <span >${
         dataId.authors[0].verified ? verifiedIcon : ""
@@ -75,6 +91,21 @@ const displayAllCategory = async (categoryId) => {
     errorContainer.appendChild(newDiv2);
   }
 };
-
+const sortDataByViews = async (allData) => {
+  const sorted = await allData.sort((view1, view2) => {
+    view1 = parseFloat(view1.others.views);
+    view2 = parseFloat(view2.others.views);
+    if (view1 > view2) {
+      return -1;
+    }
+    if (view1 < view2) {
+      return 1;
+    }
+    return 0;
+  });
+  document.getElementById("sort-btn").addEventListener("click", function () {
+    displayAllCategory(sorted);
+  });
+};
+getAllCategoryId("1000");
 loadData();
-displayAllCategory("1000");
